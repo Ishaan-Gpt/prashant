@@ -1,275 +1,168 @@
-<!-- AVANT-GARDE HERO: CINEMATIC SPLIT -->
-<section id="home" class="hero-avant-garde">
+<!-- PROFESSIONAL WHITE HERO -->
+<section id="home" class="hero-white">
+    <div class="container hero-container">
 
-    <!-- Left: The Narrative -->
-    <div class="hero-left-col">
-        <div class="hero-brand-mark">
-            <svg viewBox="0 0 100 100" class="brand-spinner">
-                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                <text>
-                    <textPath xlink:href="#circlePath">SUPREME INFRATECH • EST 2020 •</textPath>
-                </text>
-            </svg>
-            <div class="brand-center">SI</div>
+        <!-- Left: Brand & Title -->
+        <div class="hero-content">
+            <span class="hero-tag">EST. 2020</span>
+            <div class="limit-h1">
+                <h1>CONCRETE<br>POETRY.</h1>
+            </div>
+            <p class="hero-lead">Engineering future-ready infrastructure with precision, integrity, and scale.</p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="kinetic-pill-btn light-mode">
+                    <span class="pill-bg"></span>
+                    <span>View Projects</span>
+                </a>
+            </div>
         </div>
 
-        <div class="hero-titles">
-            <h1 class="reveal-text">CONCRETE</h1>
-            <h1 class="reveal-text outline">POETRY</h1>
-            <h1 class="reveal-text">STEEL</h1>
-            <h1 class="reveal-text outline">LOGIC</h1>
+        <!-- Right: Visual -->
+        <div class="hero-visual">
+            <img src="assets/hero.png" alt="Supreme Infrastructure">
+            <div class="hero-stat shadow-card">
+                <span class="h-num">3.5M+</span>
+                <span class="h-label">Sq. Ft. Delivered</span>
+            </div>
         </div>
+
     </div>
-
-    <!-- Right: The Visual Portal -->
-    <div class="hero-right-col">
-        <div class="portal-strips">
-            <!-- Strip 1 -->
-            <div class="p-strip" style="--delay: 0s;">
-                <img src="assets/hero.png" alt="Architecture">
-            </div>
-            <!-- Strip 2 -->
-            <div class="p-strip" style="--delay: 0.1s;">
-                <img src="assets/hero.png" alt="Architecture">
-            </div>
-            <!-- Strip 3 -->
-            <div class="p-strip" style="--delay: 0.2s;">
-                <img src="assets/hero.png" alt="Architecture">
-            </div>
-        </div>
-
-        <div class="hero-overlay-stat">
-            <span class="giant-num">3.5M</span>
-            <span class="giant-label">So. Ft. Built</span>
-        </div>
-    </div>
-
 </section>
 
 <style>
-    /* Reset & Base */
-    .hero-avant-garde {
-        height: 100vh;
-        display: flex;
-        background: #0D0D0D;
-        color: #F0F0F0;
-        overflow: hidden;
-        position: relative;
-    }
-
-    /* Left Column */
-    .hero-left-col {
-        width: 40%;
-        padding: 0 5vw;
-        /* Aligns with global container */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-        z-index: 2;
-    }
-
-    .hero-brand-mark {
-        position: absolute;
-        top: 60px;
-        left: 60px;
-        width: 120px;
-        height: 120px;
-    }
-
-    .brand-spinner {
-        width: 100%;
-        height: 100%;
-        animation: rotate 20s linear infinite;
-    }
-
-    .brand-spinner text {
-        fill: #F0F0F0;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-
-    .brand-center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.5rem;
-        font-weight: 900;
-    }
-
-    @keyframes rotate {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    .hero-titles {
-        margin-top: 100px;
-    }
-
-    .hero-titles h1 {
-        font-size: clamp(3rem, 10vw, 150px);
-        /* Reduced min to 3rem for mobile safety */
-        line-height: 0.9;
-        /* Slightly more breathing room */
-        font-family: 'Poppins', sans-serif;
-        font-weight: 800;
-        margin: 0;
-        text-transform: uppercase;
-    }
-
-    .hero-titles h1.outline {
-        color: transparent;
-        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
-    }
-
-    .hero-footer-absolute {
-        position: absolute;
-        bottom: 60px;
-        left: 60px;
-    }
-
-    .scroll-indicator {
+    /* Reset */
+    .hero-white {
+        min-height: 100vh;
+        background: #FFFFFF;
+        color: #000000;
         display: flex;
         align-items: center;
-        gap: 20px;
-        font-size: 0.7rem;
-        letter-spacing: 3px;
-        transform: rotate(-90deg);
-        transform-origin: left;
-    }
-
-    .line-grow {
-        width: 50px;
-        height: 1px;
-        background: white;
-        animation: growLine 2s infinite ease-in-out;
-    }
-
-    @keyframes growLine {
-        0% {
-            width: 0;
-            opacity: 0;
-        }
-
-        50% {
-            width: 50px;
-            opacity: 1;
-        }
-
-        100% {
-            width: 0;
-            opacity: 0;
-            transform: translateX(50px);
-        }
-    }
-
-    /* Right Column */
-    .hero-right-col {
-        width: 60%;
+        padding-top: 100px;
+        /* Nav space */
         position: relative;
         overflow: hidden;
     }
 
-    .portal-strips {
-        display: flex;
-        height: 100%;
-        width: 100%;
-        /* Ensure full width */
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
     }
 
-    .p-strip {
-        flex: 1;
-        height: 100%;
-        position: relative;
-        overflow: hidden;
-        transform: translateY(100%);
-        animation: slideUp 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-        animation-delay: var(--delay);
+    .hero-tag {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+        display: block;
+        font-weight: 700;
     }
 
-    .p-strip img {
-        height: 100%;
-        width: 300%;
-        /* Zoomed in to create fragmented look */
-        object-fit: cover;
-        position: absolute;
-        top: 0;
-        /* Offset images to align visually */
+    .limit-h1 h1 {
+        font-size: clamp(3.5rem, 6vw, 100px);
+        line-height: 0.95;
+        font-weight: 800;
+        margin-bottom: 30px;
+        letter-spacing: -2px;
     }
 
-    .p-strip:nth-child(1) img {
-        left: 0;
+    .hero-lead {
+        font-size: 1.1rem;
+        color: #555;
+        max-width: 450px;
+        line-height: 1.6;
+        margin-bottom: 40px;
     }
 
-    .p-strip:nth-child(2) img {
-        left: -100%;
-    }
-
-    .p-strip:nth-child(3) img {
-        left: -200%;
-    }
-
-    @keyframes slideUp {
-        from {
-            transform: translateY(100%);
-        }
-
-        to {
-            transform: translateY(0);
-        }
-    }
-
-    .hero-overlay-stat {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: #BCA37F;
+    /* Button Refinement for Light Mode */
+    .kinetic-pill-btn.light-mode {
         color: #000;
-        padding: 40px 60px;
+        border-color: #000;
+    }
+
+    .kinetic-pill-btn.light-mode:hover {
+        color: #FFF;
+    }
+
+    .hero-visual {
+        position: relative;
+        height: 70vh;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .hero-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(10%);
+    }
+
+    .hero-stat {
+        position: absolute;
+        bottom: 40px;
+        left: -40px;
+        background: #FFF;
+        padding: 30px 50px;
         display: flex;
         flex-direction: column;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
-    .giant-num {
+    .h-num {
         font-size: 3rem;
         font-weight: 900;
+        color: #000;
         line-height: 1;
     }
 
-    .giant-label {
+    .h-label {
         font-size: 0.8rem;
         font-weight: 700;
-        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #999;
     }
 
+    /* Mobile Response */
     @media (max-width: 1024px) {
-        .hero-avant-garde {
-            flex-direction: column;
+        .hero-white {
             height: auto;
+            padding-bottom: 60px;
         }
 
-        .hero-left-col {
+        .hero-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .hero-content {
+            order: 2;
+            /* Visual first on mobile? Or Text first. Let's keep Text first for impact */
+            padding-right: 0;
+        }
+
+        .hero-visual {
+            height: 40vh;
             width: 100%;
-            height: 60vh;
-            padding: 30px;
-            border-right: none;
         }
 
-        .hero-right-col {
-            width: 100%;
-            height: 50vh;
+        .hero-stat {
+            bottom: 20px;
+            left: 20px;
+            right: auto;
+            padding: 20px 30px;
         }
 
-        .hero-footer-absolute {
-            display: none;
+        .h-num {
+            font-size: 2rem;
+        }
+
+        .limit-h1 h1 {
+            font-size: 3rem;
+            /* Force readable size */
         }
     }
 </style>

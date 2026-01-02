@@ -1,177 +1,211 @@
-<section id="projects" class="creative-portfolio-section">
-    <div class="container" style="max-width: 100%; padding: 0;">
+<section id="projects" class="pro-projects-section">
+    <div class="container">
 
-        <!-- Header -->
-        <div class="creative-header">
-            <h2>ICONIC<br>STRUCTURES.</h2>
+        <div class="pro-header">
+            <span class="pro-tag">PORTFOLIO</span>
+            <h2>SELECTED<br>WORKS.</h2>
         </div>
 
-        <!-- Project 1 -->
-        <div class="creative-project-row">
-            <div class="cp-info">
-                <span class="cp-num">01</span>
-                <h3>VEDANTA<br>ALUMINIUM</h3>
-                <p>An industrial colossus. 250 Acres of precise steel fabrication and heavy civil engineering.</p>
-                <div class="cp-tags">
-                    <span>Heavy Civil</span>
-                    <span>Fabrication</span>
-                </div>
-            </div>
-            <div class="cp-visual">
-                <img src="assets/hero.png" alt="Vedanta">
-            </div>
-        </div>
+        <div class="pro-list">
 
-        <!-- Project 2 -->
-        <div class="creative-project-row reverse">
-            <div class="cp-info">
-                <span class="cp-num">02</span>
-                <h3>NSTI<br>CAMPUS</h3>
-                <p>Institutional landmark. Combining vernacular aesthetics with modern structural integrity.</p>
-                <div class="cp-tags">
-                    <span>Design & Build</span>
-                    <span>Institutional</span>
+            <!-- Project 1 -->
+            <div class="pro-item">
+                <div class="pro-img">
+                    <img src="assets/hero.png" alt="Vedanta">
+                </div>
+                <div class="pro-details">
+                    <span class="p-year">2023</span>
+                    <h3>VEDANTA ALUMINIUM</h3>
+                    <p>Jharsuguda, Odisha &bull; Heavy Industrial</p>
+                    <a href="#" class="p-link">View Case Study <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="cp-visual">
-                <img src="assets/nsti.png" alt="NSTI">
-            </div>
-        </div>
 
-        <!-- Project 3 -->
-        <div class="creative-project-row">
-            <div class="cp-info">
-                <span class="cp-num">03</span>
-                <h3>CIVIL<br>TOWNSHIP</h3>
-                <p>Urban planning at scale. Residential complexes integrated with sustainable utilities.</p>
-                <div class="cp-tags">
-                    <span>Urban Planning</span>
-                    <span>Residential</span>
+            <!-- Project 2 -->
+            <div class="pro-item reverse">
+                <div class="pro-img">
+                    <img src="assets/nsti.png" alt="NSTI">
+                </div>
+                <div class="pro-details">
+                    <span class="p-year">2022</span>
+                    <h3>NSTI CAMPUS</h3>
+                    <p>Bhubaneswar, Odisha &bull; Institutional</p>
+                    <a href="#" class="p-link">View Case Study <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="cp-visual">
-                <img src="assets/infra.png" alt="Township">
+
+            <!-- Project 3 -->
+            <div class="pro-item">
+                <div class="pro-img">
+                    <img src="assets/infra.png" alt="Township">
+                </div>
+                <div class="pro-details">
+                    <span class="p-year">2021</span>
+                    <h3>ROURKELA TOWNSHIP</h3>
+                    <p>Rourkela, Odisha &bull; Urban Planning</p>
+                    <a href="#" class="p-link">View Case Study <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
+
         </div>
 
     </div>
 </section>
 
 <style>
-    .creative-portfolio-section {
-        background: #000;
-        color: white;
-        padding-bottom: 200px;
+    .pro-projects-section {
+        padding: 100px 0;
+        background: #FAFAFA;
+        /* Light Gray */
+        color: #000;
     }
 
-    .creative-header {
-        padding: 15vh 5vw;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .pro-header {
+        margin-bottom: 80px;
     }
 
-    .creative-header h2 {
-        font-size: clamp(4rem, 15vw, 200px);
-        line-height: 0.8;
-        letter-spacing: -4px;
-    }
-
-    .creative-project-row {
-        display: flex;
-        height: 90vh;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .creative-project-row.reverse {
-        flex-direction: row-reverse;
-    }
-
-    .cp-info {
-        width: 40%;
-        padding: 80px 5vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        z-index: 2;
-        background: #000;
-    }
-
-    .cp-num {
+    .pro-tag {
         font-family: 'Space Mono', monospace;
-        font-size: 1rem;
-        color: var(--color-primary);
-        margin-bottom: 40px;
+        font-size: 0.8rem;
+        color: #888;
         display: block;
+        margin-bottom: 10px;
+        font-weight: 700;
     }
 
-    .cp-info h3 {
-        font-size: clamp(3rem, 6vw, 80px);
+    .pro-header h2 {
+        font-size: 4rem;
         line-height: 0.9;
-        margin-bottom: 40px;
+        letter-spacing: -2px;
     }
 
-    .cp-info p {
-        font-size: 1.1rem;
-        color: #999;
-        max-width: 400px;
-        margin-bottom: 40px;
+    .pro-item {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        /* Image larger */
+        gap: 60px;
+        margin-bottom: 120px;
+        align-items: center;
     }
 
-    .cp-tags {
-        display: flex;
-        gap: 20px;
+    .pro-item.reverse {
+        direction: rtl;
+        /* simple way to flip grid? No, better use explicit template areas or reorder */
+        grid-template-columns: 0.8fr 1.2fr;
     }
 
-    .cp-tags span {
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        padding: 8px 15px;
-        font-family: 'Space Mono', monospace;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        border-radius: 20px;
+    /* Correct reset for text direction inside reverse */
+    .pro-item.reverse .pro-details,
+    .pro-item.reverse .pro-img {
+        direction: ltr;
     }
 
-    .cp-visual {
-        width: 60%;
-        height: 100%;
-        position: relative;
+    /* Actually, let's just swap order in HTML or Grid for cleaner code.
+   Using .reverse { grid-template-columns: 0.8fr 1.2fr; } and putting visual first/second is tricky if HTML order is fixed.
+   Let's rely on Mobile Stacking primarily.
+*/
+    .pro-item.reverse {
+        grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .pro-item.reverse .pro-img {
+        order: 2;
+    }
+
+    .pro-item.reverse .pro-details {
+        order: 1;
+    }
+
+
+    .pro-img {
+        height: 500px;
         overflow: hidden;
+        background: #EEE;
     }
 
-    .cp-visual img {
+    .pro-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 1.5s var(--ease-luxury);
-        filter: grayscale(1) contrast(1.2);
+        transition: transform 0.6s ease;
+        filter: grayscale(100%);
     }
 
-    .creative-project-row:hover img {
-        transform: scale(1.1);
-        filter: grayscale(0) contrast(1);
+    .pro-item:hover img {
+        transform: scale(1.05);
+        filter: grayscale(0);
+    }
+
+    .pro-details {
+        padding: 0 20px;
+    }
+
+    .p-year {
+        font-family: 'Space Mono', monospace;
+        color: var(--color-primary);
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .pro-details h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .pro-details p {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+    }
+
+    .p-link {
+        text-decoration: none;
+        color: #000;
+        font-weight: 700;
+        border-bottom: 2px solid #000;
+        padding-bottom: 5px;
+        transition: 0.3s;
+    }
+
+    .p-link:hover {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
     }
 
     @media (max-width: 1024px) {
-
-        .creative-project-row,
-        .creative-project-row.reverse {
-            flex-direction: column;
-            height: auto;
+        .pro-projects-section {
+            padding: 60px 0;
         }
 
-        .cp-info,
-        .cp-visual {
-            width: 100%;
+        .pro-header h2 {
+            font-size: 3rem;
         }
 
-        .cp-visual {
-            height: 50vh;
+        .pro-item,
+        .pro-item.reverse {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 80px;
         }
 
-        .cp-info {
-            padding: 60px 5vw;
+        .pro-item.reverse .pro-img {
+            order: 0;
+        }
+
+        /* Reset order for stacking */
+        .pro-item.reverse .pro-details {
+            order: 1;
+        }
+
+        .pro-img {
+            height: 300px;
+        }
+
+        .pro-details h3 {
+            font-size: 1.8rem;
         }
     }
 </style>

@@ -1,134 +1,100 @@
-<section id="philosophy" class="manifesto-grid-section">
+<section id="philosophy" class="philosophy-light">
     <div class="container">
-        <!-- Header -->
-        <div class="manifesto-header">
-            <h2 class="outline-text">THE CODE</h2>
-            <h2>WE LIVE BY</h2>
-        </div>
-
-        <!-- Grid -->
-        <div class="manifesto-grid">
-
-            <!-- Box 1 -->
-            <div class="m-box box-black">
-                <div class="m-icon">01</div>
-                <h3>ZERO<br>COMPROMISE</h3>
-                <p>We do not value engineering projects. We value engineering <i>perfection</i>.</p>
+        <div class="ph-grid">
+            <div class="ph-col header-col">
+                <span class="ph-tag">ETHOS</span>
+                <h2>CORE<br>VALUES.</h2>
             </div>
 
-            <!-- Box 2 -->
-            <div class="m-box box-outline">
-                <div class="m-icon">02</div>
-                <h3>EXTREME<br>PRECISION</h3>
-                <p>Tolerance levels measured in millimeters, not centimeters. Accuracy is our only currency.</p>
+            <div class="ph-col content-col">
+                <div class="ph-item">
+                    <h3>01. PRECISION</h3>
+                    <p>We do not compromise on tolerances. Every beam, every mix, every alignment is exact.</p>
+                </div>
+                <div class="ph-item">
+                    <h3>02. INTEGRITY</h3>
+                    <p>Honest materials. Transparent processes. We build relationships as strong as our foundations.</p>
+                </div>
+                <div class="ph-item">
+                    <h3>03. SCALE</h3>
+                    <p>From townships to industrial complexes, we amplify vision without losing detail.</p>
+                </div>
             </div>
-
-            <!-- Box 3 -->
-            <div class="m-box box-gold">
-                <div class="m-icon">03</div>
-                <h3>FUTURE<br>PROOF</h3>
-                <p>Building structures today that will stand pertinent and resilient in 2050.</p>
-            </div>
-
         </div>
     </div>
 </section>
 
 <style>
-    .manifesto-grid-section {
-        padding: 15vh 0;
-        background: #111;
-        color: white;
+    .philosophy-light {
+        padding: 120px 0;
+        background: #FFFFFF;
+        color: #000;
+        border-top: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
     }
 
-    .manifesto-header {
-        text-align: center;
-        margin-bottom: 80px;
-    }
-
-    .manifesto-header h2 {
-        font-size: clamp(4rem, 10vw, 150px);
-        line-height: 0.85;
-    }
-
-    .outline-text {
-        color: transparent;
-        -webkit-text-stroke: 1px white;
-    }
-
-    .manifesto-grid {
+    .ph-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        grid-template-columns: 1fr 2fr;
+        gap: 80px;
     }
 
-    .m-box {
-        padding: 60px 40px;
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 400px;
-        transition: 0.4s;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .m-box:last-child {
-        border-right: none;
-    }
-
-    .m-icon {
+    .ph-tag {
         font-family: 'Space Mono', monospace;
-        font-size: 1rem;
-        border: 1px solid currentColor;
-        width: fit-content;
-        padding: 5px 10px;
-        border-radius: 20px;
-        margin-bottom: 40px;
-    }
-
-    .m-box h3 {
-        font-size: 2.5rem;
-        line-height: 1;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        display: block;
         margin-bottom: 20px;
     }
 
-    .m-box p {
-        font-size: 0.9rem;
-        opacity: 0.7;
-        max-width: 250px;
+    .header-col h2 {
+        font-size: 3.5rem;
+        line-height: 0.95;
+        letter-spacing: -2px;
     }
 
-    .box-black:hover {
-        background: #222;
+    .content-col {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
     }
 
-    .box-outline:hover {
-        background: white;
-        color: black;
+    .ph-item {
+        border-left: 2px solid #EEE;
+        padding-left: 30px;
+        transition: 0.3s;
     }
 
-    .box-gold:hover {
-        background: var(--color-primary);
-        color: black;
+    .ph-item:hover {
+        border-left-color: var(--color-primary);
+    }
+
+    .ph-item h3 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+
+    .ph-item p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
     }
 
     @media (max-width: 1024px) {
-        .manifesto-grid {
+        .ph-grid {
             grid-template-columns: 1fr;
-            border: none;
+            gap: 40px;
         }
 
-        .m-box {
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-bottom: none;
-            height: 300px;
+        .header-col h2 {
+            font-size: 2.5rem;
         }
 
-        .m-box:last-child {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        .content-col {
+            gap: 40px;
         }
     }
 </style>
