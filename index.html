@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPREME INFRATECH | BEYOND ENGINEERING</title>
+    <meta name="description" content="Awwwards level modular architecture for Supreme Infratech.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;500;700;800&family=Poppins:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Motion System -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="project-peek" id="projectPeek"><img src="assets/hero.png" alt="Preview"></div>
+
+    <!-- UI Components -->
+    <div id="nav-root"></div>
+
+    <main id="main-content" class="main-container">
+        <div id="hero-root"></div>
+        <div id="story-root"></div>
+        <div id="philosophy-root"></div>
+        <div id="projects-root"></div>
+        <div id="partners-root"></div>
+        <div id="metrics-root"></div>
+        <div id="engineering-root"></div>
+        <div id="safety-root"></div>
+        <div id="reach-root"></div>
+        <div id="innovation-root"></div>
+        <div id="leadership-root"></div>
+        <div id="sustainability-root"></div>
+        <div id="faq-root"></div>
+        <div id="footer-root"></div>
+    </main>
+
+    <!-- Component Loader Logic -->
+    <script src="script.js"></script>
+    <script>
+        async function loadComponent(id, url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const html = await response.text();
+                const container = document.getElementById(id);
+                if (container) {
+                    container.innerHTML = html;
+                }
+            } catch (err) {
+                console.error(`Failed to load ${url}:`, err);
+            }
+        }
+
+        async function initApp() {
+            // Load all sections
+            const components = [
+                { id: 'nav-root', url: 'components/nav.html' },
+                { id: 'hero-root', url: 'sections/hero.html' },
+                { id: 'story-root', url: 'sections/story.html' },
+                { id: 'philosophy-root', url: 'sections/philosophy.html' },
+                { id: 'projects-root', url: 'sections/projects.html' },
+                { id: 'partners-root', url: 'sections/partners.html' },
+                { id: 'metrics-root', url: 'sections/metrics.html' },
+                { id: 'engineering-root', url: 'sections/engineering.html' },
+                { id: 'safety-root', url: 'sections/safety.html' },
+                { id: 'reach-root', url: 'sections/reach.html' },
+                { id: 'innovation-root', url: 'sections/innovation.html' },
+                { id: 'leadership-root', url: 'sections/leadership.html' },
+                { id: 'sustainability-root', url: 'sections/sustainability.html' },
+                { id: 'faq-root', url: 'sections/faq.html' },
+                { id: 'footer-root', url: 'sections/footer.html' }
+            ];
+
+            for (const item of components) {
+                await loadComponent(item.id, item.url);
+            }
+
+            // Re-initialize motion engine
+            if (typeof initMotionEngine === 'function') {
+                initMotionEngine();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+
+</html>
