@@ -1,14 +1,83 @@
-<section id="stats" class="metrics-section">
-    <div class="metric-item reveal">
-        <div class="metric-num">200</div>
-        <div class="metric-label">CR / ANNUAL <br>REVENUE FLOW</div>
-    </div>
-    <div class="metric-item reveal">
-        <div class="metric-num">130</div>
-        <div class="metric-label">CR / ACTIVE <br>PROJECT BACKLOG</div>
-    </div>
-    <div class="metric-item reveal">
-        <div class="metric-num">40</div>
-        <div class="metric-label">CR / TOTAL <br>BANK FACILITY</div>
+<section id="metrics" class="ticker-metrics-section">
+    <div class="ticker-belt">
+        <!-- Loop 1 -->
+        <div class="ticker-group">
+            <span class="t-item">INFRASTRUCTURE <span class="t-val">₹1500Cr</span></span>
+            <span class="t-sep">+</span>
+            <span class="t-item">SAFETY <span class="t-val">900Days</span></span>
+            <span class="t-sep">+</span>
+            <span class="t-item">BUILT <span class="t-val">3.5M SqFt</span></span>
+            <span class="t-sep">+</span>
+            <span class="t-item">WORKFORCE <span class="t-val">2500+</span></span>
+            <span class="t-sep">+</span>
+        </div>
+        <!-- Loop 2 (Duplicate) -->
+        <div class="ticker-group">
+            <span class="t-item">INFRASTRUCTURE <span class="t-val">₹1500Cr</span></span>
+            <span class="t-sep">+</span>
+            <span class="t-item">SAFETY <span class="t-val">900Days</span></span>
+            <span class="t-sep">+</span>
+            <span class="t-item">BUILT <span class="t-val">3.5M SqFt</span></span>
+            <span class="t-sep">+</span>
+            <span class="t-item">WORKFORCE <span class="t-val">2500+</span></span>
+            <span class="t-sep">+</span>
+        </div>
     </div>
 </section>
+
+<style>
+    .ticker-metrics-section {
+        background: var(--color-primary);
+        color: #000;
+        padding: 30px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        border-bottom: 1px solid #000;
+        font-family: var(--font-heading);
+    }
+
+    .ticker-belt {
+        display: inline-flex;
+        animation: marq 20s linear infinite;
+    }
+
+    .ticker-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .t-item {
+        font-size: 4rem;
+        font-weight: 800;
+        margin: 0 40px;
+        letter-spacing: -1px;
+    }
+
+    .t-val {
+        font-weight: 300;
+        /* Lighter weight for contrast */
+        margin-left: 10px;
+    }
+
+    .t-sep {
+        font-size: 2rem;
+        opacity: 0.3;
+    }
+
+    @keyframes marq {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .t-item {
+            font-size: 2rem;
+            margin: 0 20px;
+        }
+    }
+</style>

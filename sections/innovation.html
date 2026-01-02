@@ -1,40 +1,220 @@
-<section id="innovation" class="section-padding hyper-digital">
-    <div class="container-full">
-        <div class="digital-header">
-            <span class="hero-subline">Future-Ready</span>
-            <h2 class="text-reveal giant"><span>Digital Twins.</span></h2>
+<section id="innovation" class="tech-matrix-section reveal">
+    <div class="container matrix-container">
+        <!-- Sticky Left Header -->
+        <div class="matrix-header">
+            <span class="matrix-tag">SYSTEM_CORE</span>
+            <h2>Digital <br>Supremacy.</h2>
+            <div class="matrix-stats">
+                <div class="m-stat">
+                    <span>LOD</span>
+                    <strong>500</strong>
+                </div>
+                <div class="m-stat">
+                    <span>BIM</span>
+                    <strong>v3.0</strong>
+                </div>
+            </div>
+            <!-- Decorative Lines -->
+            <div class="dec-line dl-1"></div>
+            <div class="dec-line dl-2"></div>
         </div>
 
-        <div class="twin-workspace">
-            <div class="twin-visual-bay reveal">
-                <div class="scanning-beam"></div>
-                <div class="hologram-effect">
-                    <img src="assets/chemical.png" alt="Digital Prototype">
-                </div>
+        <!-- The Tech Grid -->
+        <div class="tech-grid-3d">
+
+            <!-- Cell 1 -->
+            <div class="tech-cell">
+                <div class="cell-corner tr"></div>
+                <div class="cell-corner bl"></div>
+                <div class="cell-icon"><i class="fa-solid fa-cube"></i></div>
+                <h4>3D Modeling</h4>
+                <div class="cell-code">10110</div>
+                <p>Full-spectrum clash detection & physics simulation.</p>
             </div>
 
-            <div class="twin-data-bay">
-                <div class="data-block reveal">
-                    <div class="data-header"><span>01</span> SYSTEM_BIM</div>
-                    <h3>BIM Level 3</h3>
-                    <p>Complete multi-dimensional digital lifecycle management of critical structural assets.</p>
-                </div>
-                <div class="data-block reveal" data-delay="100">
-                    <div class="data-header"><span>02</span> AERIAL_NODE</div>
-                    <h3>Drone Surveys</h3>
-                    <p>Omni-directional site mapping for frame-by-frame progress verification.</p>
-                </div>
-                <div class="data-block reveal" data-delay="200">
-                    <div class="data-header"><span>03</span> IoT_CORE</div>
-                    <h3>IoT Sensors</h3>
-                    <p>Live molecular curing monitoring for ultra-optimized structural integrity.</p>
-                </div>
-                <div class="data-block reveal" data-delay="300">
-                    <div class="data-header"><span>04</span> NEURAL_EYE</div>
-                    <h3>AI Safety</h3>
-                    <p>Real-time computer vision processing for hazard detection in active zones.</p>
-                </div>
+            <!-- Cell 2 -->
+            <div class="tech-cell active">
+                <div class="cell-corner tr"></div>
+                <div class="cell-corner bl"></div>
+                <div class="cell-icon"><i class="fa-solid fa-plane-up"></i></div>
+                <h4>Aerial Lidar</h4>
+                <div class="cell-code">01101</div>
+                <p>Topological scanning precision up to 1mm.</p>
             </div>
+
+            <!-- Cell 3 -->
+            <div class="tech-cell">
+                <div class="cell-corner tr"></div>
+                <div class="cell-corner bl"></div>
+                <div class="cell-icon"><i class="fa-solid fa-wifi"></i></div>
+                <h4>IoT Concrete</h4>
+                <div class="cell-code">11001</div>
+                <p>Real-time curing sensors embedded in slab pours.</p>
+            </div>
+
+            <!-- Cell 4 -->
+            <div class="tech-cell">
+                <div class="cell-corner tr"></div>
+                <div class="cell-corner bl"></div>
+                <div class="cell-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <h4>ERP Cloud</h4>
+                <div class="cell-code">00111</div>
+                <p>Centralized resource planning & logic.</p>
+            </div>
+
         </div>
     </div>
 </section>
+
+<style>
+    .tech-matrix-section {
+        padding: 15vh 0;
+        background: #0F0F0F;
+        color: white;
+        position: relative;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .matrix-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 100px;
+    }
+
+    .matrix-header {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    .matrix-tag {
+        font-family: 'Space Mono', monospace;
+        color: var(--color-primary);
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .matrix-header h2 {
+        font-size: 4rem;
+        line-height: 0.9;
+        margin-bottom: 50px;
+    }
+
+    .matrix-stats {
+        display: flex;
+        gap: 40px;
+    }
+
+    .m-stat {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .m-stat span {
+        font-size: 0.7rem;
+        color: #666;
+    }
+
+    .m-stat strong {
+        font-size: 2rem;
+        color: var(--color-primary);
+    }
+
+    .tech-grid-3d {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+        background: rgba(255, 255, 255, 0.1);
+        /* The gap color */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tech-cell {
+        background: #0F0F0F;
+        /* Inner cell bg */
+        padding: 60px 40px;
+        position: relative;
+        transition: 0.4s;
+        overflow: hidden;
+    }
+
+    .tech-cell:hover,
+    .tech-cell.active {
+        background: #151515;
+    }
+
+    .tech-cell:hover h4 {
+        color: var(--color-primary);
+    }
+
+    .cell-corner {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border: 1px solid var(--color-primary);
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    .tech-cell:hover .cell-corner {
+        opacity: 1;
+    }
+
+    .tr {
+        top: 10px;
+        right: 10px;
+        border-bottom: none;
+        border-left: none;
+    }
+
+    .bl {
+        bottom: 10px;
+        left: 10px;
+        border-top: none;
+        border-right: none;
+    }
+
+    .cell-icon {
+        font-size: 2rem;
+        color: #444;
+        margin-bottom: 30px;
+        transition: 0.4s;
+    }
+
+    .tech-cell:hover .cell-icon {
+        color: var(--color-primary);
+        transform: scale(1.1);
+    }
+
+    .cell-code {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.6rem;
+        color: rgba(255, 255, 255, 0.1);
+    }
+
+    .tech-cell p {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 15px;
+    }
+
+    @media (max-width: 1024px) {
+        .matrix-container {
+            grid-template-columns: 1fr;
+        }
+
+        .matrix-header {
+            position: relative;
+            top: 0;
+            margin-bottom: 50px;
+        }
+
+        .tech-grid-3d {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

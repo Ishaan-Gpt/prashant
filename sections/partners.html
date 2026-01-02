@@ -1,25 +1,195 @@
-<section id="partners" class="section-padding bg-surface">
-    <div class="container-8">
-        <span class="hero-subline">The Network</span>
-        <h2>Strategic <br>Alliances</h2>
-        <div class="partners-marquee">
-            <div class="marquee-inner">
-                <span class="partner-name">VEDANTA STEEL</span>
-                <span class="partner-name">MECON LTD</span>
-                <span class="partner-name">BAJRANG POWER</span>
-                <span class="partner-name">JINDAL ENERGY</span>
-                <span class="partner-name">TATA PROJECTS</span>
-                <span class="partner-name">L&T INFRA</span>
-                <!-- Duplicate for seamless loop -->
-                <span class="partner-name">VEDANTA STEEL</span>
-                <span class="partner-name">MECON LTD</span>
-                <span class="partner-name">BAJRANG POWER</span>
-                <span class="partner-name">JINDAL ENERGY</span>
-                <span class="partner-name">TATA PROJECTS</span>
-                <span class="partner-name">L&T INFRA</span>
+<section id="partners" class="section-padding reveal">
+    <div class="container">
+        <!-- Luxury Header -->
+        <div class="luxury-section-header" style="text-align: center; max-width: 900px; margin: 0 auto 80px;">
+            <span class="hero-subline" style="padding-left: 0;">Strategic Network</span>
+            <h2 style="font-size: clamp(2.5rem, 5vw, 60px);">Trusted by India's<br>Industrial Leaders</h2>
+            <p class="spacer-sm">Collaborating with major conglomerates to deliver infrastructure that powers the
+                nation's industrial growth.</p>
+        </div>
+
+        <!-- Luxury Partner Grid -->
+        <div class="luxury-partners-grid">
+            <div class="partner-card-luxury reveal" data-delay="100">
+                <div class="partner-icon">
+                    <div class="icon-frame">V</div>
+                </div>
+                <h4>Vedanta Group</h4>
+                <p>Aluminium & Steel Complex</p>
+                <span class="partner-value">₹48M+</span>
+            </div>
+
+            <div class="partner-card-luxury reveal" data-delay="200">
+                <div class="partner-icon">
+                    <div class="icon-frame">M</div>
+                </div>
+                <h4>MECON Limited</h4>
+                <p>Industrial Engineering</p>
+                <span class="partner-value">₹32M+</span>
+            </div>
+
+            <div class="partner-card-luxury reveal" data-delay="300">
+                <div class="partner-icon">
+                    <div class="icon-frame">T</div>
+                </div>
+                <h4>Tata Projects</h4>
+                <p>Infrastructure Development</p>
+                <span class="partner-value">₹28M+</span>
+            </div>
+
+            <div class="partner-card-luxury reveal" data-delay="400">
+                <div class="partner-icon">
+                    <div class="icon-frame">J</div>
+                </div>
+                <h4>Jindal Steel</h4>
+                <p>Steel Fabrication Works</p>
+                <span class="partner-value">₹24M+</span>
+            </div>
+
+            <div class="partner-card-luxury reveal" data-delay="500">
+                <div class="partner-icon">
+                    <div class="icon-frame">L</div>
+                </div>
+                <h4>L&T Infrastructure</h4>
+                <p>Civil Construction</p>
+                <span class="partner-value">₹18M+</span>
+            </div>
+
+            <div class="partner-card-luxury reveal" data-delay="600">
+                <div class="partner-icon">
+                    <div class="icon-frame">B</div>
+                </div>
+                <h4>Bajrang Power</h4>
+                <p>Power Plant Structures</p>
+                <span class="partner-value">₹22M+</span>
             </div>
         </div>
-        <p class="spacer-md" style="max-width: 600px; color: var(--color-text-dim);">Collaborating with India's largest
-            industrial conglomerates to deliver structural excellence at scale.</p>
+
+        <!-- Trust Badge Removed -->
     </div>
 </section>
+
+<style>
+    .luxury-partners-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .partner-card-luxury {
+        background: white;
+        border: 1px solid var(--color-border);
+        padding: 60px 40px;
+        text-align: center;
+        transition: all 0.8s var(--ease-luxury);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .partner-card-luxury::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+        transition: height 0.8s var(--ease-luxury);
+        opacity: 0.05;
+    }
+
+    .partner-card-luxury:hover::before {
+        height: 100%;
+    }
+
+    .partner-card-luxury:hover {
+        transform: translateY(-15px);
+        border-color: var(--color-primary);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+    }
+
+    .partner-icon {
+        margin-bottom: 30px;
+    }
+
+    .icon-frame {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        border: 2px solid var(--color-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 900;
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        transition: all 0.6s var(--ease-luxury);
+    }
+
+    .partner-card-luxury:hover .icon-frame {
+        background: var(--color-primary);
+        color: white;
+        transform: rotate(360deg);
+    }
+
+    .partner-card-luxury h4 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        color: var(--color-text);
+        letter-spacing: 0;
+    }
+
+    .partner-card-luxury p {
+        font-size: 0.95rem;
+        color: var(--color-text-dim);
+        margin-bottom: 25px;
+    }
+
+    .partner-value {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: var(--color-primary);
+        padding: 10px 25px;
+        border: 1px solid var(--color-border);
+        border-radius: 20px;
+    }
+
+    .trust-badge-luxury {
+        background: linear-gradient(135deg, var(--color-text) 0%, #2A2826 100%);
+        padding: 80px;
+        border-radius: 8px;
+        color: white;
+    }
+
+    .trust-number {
+        font-size: 5rem;
+        font-weight: 900;
+        font-family: var(--font-heading);
+        color: var(--color-primary);
+        display: block;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    .trust-content p {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 1024px) {
+        .luxury-partners-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .luxury-partners-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

@@ -1,45 +1,177 @@
-<section class="section-padding">
-    <div style="padding: 0 8%;">
-        <span class="hero-subline">Arsenal</span>
-        <h2>Strength In <br>Engineering.</h2>
-        <div class="engineering-grid"
-            style="margin-top: 80px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--color-border);">
-            <div class="eng-card reveal" style="background: white; padding: 80px 40px;">
-                <i class="fa-solid fa-cranes-heavy"
-                    style="font-size: 3rem; color: var(--color-primary); margin-bottom: 40px; display: block;"></i>
-                <h3 style="margin-bottom: 20px;">Batching Plants</h3>
-                <p>4 Units of CP-30 Central Mix Systems for continuous deployment.</p>
+<section id="engineering" class="parallax-stack-section">
+    <div class="container stack-container">
+
+        <!-- Stack Header (Sticky) -->
+        <div class="stack-header">
+            <span class="stack-sub">CAPABILITIES</span>
+            <h2>ENGINEERING <br>STACK</h2>
+        </div>
+
+        <!-- The Cards -->
+        <div class="stack-deck">
+
+            <!-- Card 1 -->
+            <div class="stack-card card-1">
+                <div class="sc-num">01</div>
+                <div class="sc-content">
+                    <h3>HEAVY CIVIL</h3>
+                    <ul>
+                        <li>Foundations</li>
+                        <li>High-Rise RCC</li>
+                        <li>Complex Formwork</li>
+                    </ul>
+                </div>
             </div>
-            <div class="eng-card reveal" data-delay="100" style="background: white; padding: 80px 40px;">
-                <i class="fa-solid fa-truck-ramp-box"
-                    style="font-size: 3rem; color: var(--color-primary); margin-bottom: 40px; display: block;"></i>
-                <h3 style="margin-bottom: 20px;">Concrete Pumps</h3>
-                <p>4 Units of BP-350 High Pressure delivery systems for verticality.</p>
+
+            <!-- Card 2 -->
+            <div class="stack-card card-2">
+                <div class="sc-num">02</div>
+                <div class="sc-content">
+                    <h3>INDUSTRIAL STEEL</h3>
+                    <ul>
+                        <li>PEB Structures</li>
+                        <li>Space Frames</li>
+                        <li>Heavy Fabrication</li>
+                    </ul>
+                </div>
             </div>
-            <div class="eng-card reveal" data-delay="200" style="background: white; padding: 80px 40px;">
-                <i class="fa-solid fa-arrows-to-dot"
-                    style="font-size: 3rem; color: var(--color-primary); margin-bottom: 40px; display: block;"></i>
-                <h3 style="margin-bottom: 20px;">Tri-Mix</h3>
-                <p>6 Units for specialized vibration-free floor finishing.</p>
+
+            <!-- Card 3 -->
+            <div class="stack-card card-3">
+                <div class="sc-num">03</div>
+                <div class="sc-content">
+                    <h3>MEP SYSTEMS</h3>
+                    <ul>
+                        <li>HVAC Logic</li>
+                        <li>Fire Systems</li>
+                        <li>Smart Electricals</li>
+                    </ul>
+                </div>
             </div>
-            <div class="eng-card reveal" data-delay="300" style="background: white; padding: 80px 40px;">
-                <i class="fa-solid fa-cubes-stacked"
-                    style="font-size: 3rem; color: var(--color-primary); margin-bottom: 40px; display: block;"></i>
-                <h3 style="margin-bottom: 20px;">Shuttering</h3>
-                <p>35,000 SQFT of high-grade scaffolding and prop inventory.</p>
-            </div>
-            <div class="eng-card reveal" data-delay="400" style="background: white; padding: 80px 40px;">
-                <i class="fa-solid fa-microchip"
-                    style="font-size: 3rem; color: var(--color-primary); margin-bottom: 40px; display: block;"></i>
-                <h3 style="margin-bottom: 20px;">Digital QC</h3>
-                <p>Real-time structural monitoring and pressure testing logs.</p>
-            </div>
-            <div class="eng-card reveal" data-delay="500" style="background: white; padding: 80px 40px;">
-                <i class="fa-solid fa-helmet-safety"
-                    style="font-size: 3rem; color: var(--color-primary); margin-bottom: 40px; display: block;"></i>
-                <h3 style="margin-bottom: 20px;">Zero Hazard</h3>
-                <p>900+ Days since last LTI across all maintenance sites.</p>
-            </div>
+
         </div>
     </div>
 </section>
+
+<style>
+    .parallax-stack-section {
+        padding: 10vh 0;
+        background: #F0F0F0;
+        /* Light contrast against dark footer/innov */
+        color: #111;
+    }
+
+    .stack-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+
+    .stack-header {
+        position: sticky;
+        top: 100px;
+        height: fit-content;
+    }
+
+    .stack-header h2 {
+        font-size: 5rem;
+        line-height: 0.9;
+        letter-spacing: -2px;
+    }
+
+    .stack-sub {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.8rem;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .stack-deck {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        /* Space between cards */
+        padding-bottom: 20vh;
+        /* Allow last card to stick for a while */
+    }
+
+    .stack-card {
+        height: 400px;
+        background: #FFF;
+        border: 1px solid #000;
+        padding: 50px;
+        position: sticky;
+        top: 100px;
+        /* STACKING EFFECT */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.3s;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-1 {
+        transform: rotate(-1deg);
+        top: 120px;
+    }
+
+    .card-2 {
+        transform: rotate(1deg);
+        top: 160px;
+        background: #1a1a1a;
+        color: white;
+    }
+
+    .card-3 {
+        transform: rotate(0deg);
+        top: 200px;
+        background: var(--color-primary);
+        color: black;
+    }
+
+    .sc-num {
+        font-size: 4rem;
+        font-weight: 800;
+        opacity: 0.2;
+    }
+
+    .sc-content h3 {
+        font-size: 3rem;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    .sc-content ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+
+    .sc-content li {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        border: 1px solid currentColor;
+        padding: 5px 10px;
+    }
+
+    @media (max-width: 1024px) {
+        .stack-container {
+            grid-template-columns: 1fr;
+        }
+
+        .stack-header {
+            position: relative;
+            top: 0;
+            margin-bottom: 50px;
+        }
+
+        .stack-card {
+            position: relative;
+            top: 0 !important;
+            transform: none !important;
+            margin-bottom: 20px;
+        }
+    }
+</style>

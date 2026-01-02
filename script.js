@@ -1,123 +1,99 @@
 /**
- * SUPREME INFRATECH - THE HYPER-KINETIC MOTION ENGINE
+ * SUPREME INFRATECH - THE BRUTALIST AVANT-GARDE ENGINE
  * Pure Vanilla JS | Awwwards Standard Interactions
  */
 
 window.initMotionEngine = () => {
     initCursor();
     initScrollEngine();
-    initProjectPeek();
+    initAccordion();
+    initMatrixGrid();
     initMagneticElements();
-    initPortalMotion();
+    initContactForm();
 };
 
-// 1. Dual Cursor Logic
+// 1. Dual Cursor Logic (Updated)
 function initCursor() {
+    // Only if elements exist
     const dot = document.querySelector('.cursor-dot');
     const outline = document.querySelector('.cursor-outline');
-    if (!dot || !outline) return;
+    if (!dot || !outline) return; // Cursor elements were removed in V2, so this safely exits if missing.
 
-    let mouseX = 0, mouseY = 0;
-    let outlineX = 0, outlineY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    });
-
-    const animateCursor = () => {
-        outlineX += (mouseX - outlineX) * 0.12;
-        outlineY += (mouseY - outlineY) * 0.12;
-        outline.style.transform = `translate3d(${outlineX - 20}px, ${outlineY - 20}px, 0)`;
-        requestAnimationFrame(animateCursor);
-    };
-    animateCursor();
-
-    const interactives = document.querySelectorAll('a, .project-row, .kinetic-pill-btn, .leader-card, .data-block');
-    interactives.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            outline.style.transform += ' scale(2.5)';
-            outline.style.background = 'rgba(212, 184, 150, 0.15)';
-            outline.style.borderColor = 'transparent';
-        });
-        el.addEventListener('mouseleave', () => {
-            outline.style.background = 'transparent';
-            outline.style.borderColor = 'var(--color-primary)';
-        });
-    });
+    // If we wanted to re-add custom cursor, logic would go here.
+    // Currently staying native as per instruction "Remove Custom Cursor".
 }
 
-// 2. Scroll Logic
+// 2. Scroll Logic (Intersection Observer)
 function initScrollEngine() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Specific logic for scanners
-                const scanner = entry.target.querySelector('.scanning-beam');
-                if (scanner) scanner.style.animationPlayState = 'running';
             }
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal, .text-reveal, .split-text-reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal, .text-reveal, .hero-titles, .stat-row, .pcl-item').forEach(el => observer.observe(el));
 }
 
-// 3. Project Peek Follow
-function initProjectPeek() {
-    const peek = document.getElementById('projectPeek');
-    const rows = document.querySelectorAll('.project-row');
-    if (!peek || !rows.length) return;
+// 3. Global Accordion Logic (Critical for buttons/dropdowns)
+function initAccordion() {
+    window.toggleAcc = function (el) {
+        if (!el) return;
+        // Toggle active class
+        el.classList.toggle('active');
 
-    rows.forEach(row => {
-        row.addEventListener('mousemove', (e) => {
-            peek.style.top = (e.clientY + 20) + 'px';
-            peek.style.left = (e.clientX + 20) + 'px';
-            const img = row.getAttribute('data-img');
-            if (img) peek.querySelector('img').src = img;
-        });
-        row.addEventListener('mouseenter', () => peek.classList.add('active'));
-        row.addEventListener('mouseleave', () => peek.classList.remove('active'));
+        // Handle body height smoothly
+        const body = el.querySelector('.acc-body');
+        if (body) {
+            if (el.classList.contains('active')) {
+                body.style.maxHeight = body.scrollHeight + "px";
+            } else {
+                body.style.maxHeight = 0;
+            }
+        }
+
+        // Optional: Close others in same group
+        const startGroup = el.parentElement;
+        if (startGroup) {
+            startGroup.querySelectorAll('.acc-item').forEach(item => {
+                if (item !== el && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    const itemBody = item.querySelector('.acc-body');
+                    if (itemBody) itemBody.style.maxHeight = 0;
+                }
+            });
+        }
+    };
+
+    // Attach click listeners if not using inline onclick
+    document.querySelectorAll('.acc-item').forEach(item => {
+        // Remove old listeners to avoid dupes?
+        // Ideally we rely on onclick="toggleAcc(this)" in HTML or add here.
+        // We will assume HTML has onclick or we add it here just in case.
+        item.onclick = (e) => {
+            // Check if click was on header
+            if (e.target.closest('.acc-header')) {
+                // If the item itself calls toggleAcc via HTML, this might double trigger.
+                // Best to rely on one. The HTML usually has onclick="toggleAcc(this)".
+                // So leaving this empty to avoid conflicts, relying on window.toggleAcc.
+            }
+        };
     });
 }
 
-// 4. Portal and Schematic Parallax
-function initPortalMotion() {
-    const hero = document.querySelector('.hero.hyper-kinetic');
-    if (!hero) return;
-
-    hero.addEventListener('mousemove', (e) => {
-        const x = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
-        const y = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
-
-        // Move the schematics faster than the portal
-        const schematics = hero.querySelector('.schematic-layer');
-        if (schematics) {
-            schematics.style.transform = `translate3d(${x * 50}px, ${y * 50}px, 0)`;
-        }
-
-        const portal = hero.querySelector('.hero-portal');
-        if (portal) {
-            portal.style.transform = `translate3d(${x * -30}px, ${y * -30}px, 0) rotateY(${x * 5}deg) rotateX(${y * -5}deg)`;
-        }
-
-        // Glitch text subtle shift
-        const glitch = hero.querySelector('.glitch-text');
-        if (glitch) {
-            glitch.style.transform = `translate3d(${x * 10}px, ${y * 10}px, 0)`;
-        }
-    });
-
-    // Initial Shutter Animation (Artificial delay for effect)
-    setTimeout(() => {
-        hero.querySelectorAll('.text-reveal, .split-text-reveal').forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 200);
+// 4. Tech Matrix Interaction
+function initMatrixGrid() {
+    const cells = document.querySelectorAll('.tech-cell');
+    cells.forEach(cell => {
+        cell.addEventListener('mouseenter', () => {
+            cells.forEach(c => c.classList.remove('active'));
+            cell.classList.add('active');
         });
-    }, 500);
+    });
 }
 
-// 5. Magnetic Pill Button
+// 5. Magnetic Elements (Buttons)
 function initMagneticElements() {
     const pills = document.querySelectorAll('.kinetic-pill-btn');
     pills.forEach(pill => {
@@ -130,5 +106,32 @@ function initMagneticElements() {
         pill.addEventListener('mouseleave', () => {
             pill.style.transform = 'translate3d(0, 0, 0)';
         });
+    });
+}
+
+// 6. Contact Form Logic
+function initContactForm() {
+    const form = document.querySelector('.c-form');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.c-btn');
+        const originalText = btn.querySelector('span:last-child').innerText;
+
+        btn.querySelector('span:last-child').innerText = 'TRANSMITTING...';
+        btn.style.opacity = '0.7';
+
+        setTimeout(() => {
+            btn.querySelector('span:last-child').innerText = 'SIGNAL RECEIVED';
+            btn.style.borderColor = '#2ecc71'; // Green
+            btn.style.opacity = '1';
+            form.reset();
+
+            setTimeout(() => {
+                btn.querySelector('span:last-child').innerText = originalText;
+                btn.style.borderColor = 'white';
+            }, 3000);
+        }, 1500);
     });
 }

@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+/* 
+   SUPREME INFRATECH - THE LUXURY SUPREMACIST EDITION
+   Awwwards Level | Premium Redesign of Every Section
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
     /* Luxury  Palette */
@@ -21,8 +26,7 @@
     --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 
     --container-width: 1600px;
-    --spacing-luxury: clamp(80px, 15vh, 200px);
-    /* Reduced min height for mobile */
+    --spacing-luxury: clamp(140px, 20vh, 250px);
 }
 
 * {
@@ -39,8 +43,7 @@ body {
     font-weight: 400;
     line-height: 1.7;
     overflow-x: hidden;
-    cursor: auto;
-    /* Restored default cursor */
+    cursor: none;
     letter-spacing: -0.01em;
 }
 
@@ -61,8 +64,7 @@ body::after {
 /* --- Luxury Typography --- */
 h1 {
     font-family: var(--font-heading);
-    font-size: clamp(3.5rem, 15vw, 200px);
-    /* Reduced min for mobile */
+    font-size: clamp(5rem, 18vw, 250px);
     font-weight: 800;
     line-height: 0.85;
     letter-spacing: -0.04em;
@@ -71,7 +73,7 @@ h1 {
 
 h2 {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 9vw, 120px);
+    font-size: clamp(3rem, 10vw, 130px);
     font-weight: 700;
     line-height: 0.95;
     letter-spacing: -0.03em;
@@ -115,16 +117,13 @@ p {
 
 /* --- Luxury Section Spacing --- */
 .section-padding {
-    padding: var(--spacing-luxury) 0;
-    /* Let container handle horizontal padding */
+    padding: var(--spacing-luxury) 10%;
 }
 
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
     width: 100%;
-    padding: 0 5vw;
-    /* Global spacing fix */
 }
 
 .bg-surface {
@@ -144,7 +143,27 @@ p {
 }
 
 /* --- Premium Motion Elements --- */
-/* Cursor Removed */
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--color-primary);
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    box-shadow: 0 0 10px rgba(188, 163, 127, 0.3);
+}
+
+.cursor-outline {
+    width: 35px;
+    height: 35px;
+    border: 1px solid var(--color-primary);
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: all 0.3s var(--ease-out-expo);
+}
 
 .project-peek {
     position: fixed;
@@ -178,27 +197,22 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
-    /* Shortened from 100px */
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5vw;
+    padding: 0 10%;
     z-index: 1000;
     transition: all 0.8s var(--ease-luxury);
-    background: rgba(15, 15, 15, 0.4);
-    /* Glassy Dark */
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: transparent;
 }
 
 .nav.scrolled {
-    background: rgba(15, 15, 15, 0.8);
+    background: rgba(254, 253, 251, 0.95);
     backdrop-filter: blur(20px);
-    height: 60px;
-    /* Shortened from 85px */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    height: 85px;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
 }
 
 .logo {
@@ -229,8 +243,7 @@ p {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: white !important;
-    /* Ensure mix-blend-mode works */
+    color: var(--color-text-dim);
     text-decoration: none;
     position: relative;
     transition: color 0.5s var(--ease-luxury);
@@ -472,10 +485,7 @@ p {
 .pill-bg {
     position: absolute;
     inset: 0;
-    background: transparent;
-    /* Clean transparent look */
-    border: 1px solid var(--color-text);
-    /* Outline only */
+    background: var(--color-text);
     border-radius: 100px;
     transition: all 0.9s var(--ease-luxury);
     z-index: -1;

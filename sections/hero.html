@@ -1,69 +1,275 @@
-<section id="home" class="hero hyper-kinetic">
-    <!-- The Engine Room (Background) -->
-    <div class="hero-canvas-wrap">
-        <div class="mesh-distortion"></div>
-        <div class="noise-static"></div>
-    </div>
+<!-- AVANT-GARDE HERO: CINEMATIC SPLIT -->
+<section id="home" class="hero-avant-garde">
 
-    <!-- Floating Technical Schematics -->
-    <div class="schematic-layer" data-speed="0.05">
-        <svg class="blueprint-svg" viewBox="0 0 1000 1000">
-            <rect x="100" y="100" width="800" height="800" fill="none" stroke="currentColor" stroke-width="0.5"
-                stroke-dasharray="10 20" />
-            <circle cx="500" cy="500" r="300" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.2" />
-        </svg>
-    </div>
-
-    <!-- The "Bunker" Visual (Centerpiece) -->
-    <div class="hero-portal" data-speed="-0.02">
-        <div class="portal-frame">
-            <img src="assets/hero.png" alt="Architecture" class="portal-img">
-            <div class="portal-shutter-left"></div>
-            <div class="portal-shutter-right"></div>
+    <!-- Left: The Narrative -->
+    <div class="hero-left-col">
+        <div class="hero-brand-mark">
+            <svg viewBox="0 0 100 100" class="brand-spinner">
+                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                <text>
+                    <textPath xlink:href="#circlePath">SUPREME INFRATECH • EST 2020 •</textPath>
+                </text>
+            </svg>
+            <div class="brand-center">SI</div>
         </div>
-        <div class="portal-tag">
-            <span class="reveal">PHASE_01 // STRUCTURAL_LOGIC</span>
+
+        <div class="hero-titles">
+            <h1 class="reveal-text">CONCRETE</h1>
+            <h1 class="reveal-text outline">POETRY</h1>
+            <h1 class="reveal-text">STEEL</h1>
+            <h1 class="reveal-text outline">LOGIC</h1>
         </div>
     </div>
 
-    <!-- The Typography Bomb -->
-    <div class="hero-text-grid">
-        <div class="hero-row-1">
-            <h1 class="glitch-text" data-text="SUPREME"><span>SUPREME</span></h1>
-            <div class="hero-meta reveal">
-                <div class="meta-line"></div>
-                <p>ULTRA-INFRASTRUCTURE / 2026_EDITION</p>
+    <!-- Right: The Visual Portal -->
+    <div class="hero-right-col">
+        <div class="portal-strips">
+            <!-- Strip 1 -->
+            <div class="p-strip" style="--delay: 0s;">
+                <img src="assets/hero.png" alt="Architecture">
+            </div>
+            <!-- Strip 2 -->
+            <div class="p-strip" style="--delay: 0.1s;">
+                <img src="assets/hero.png" alt="Architecture">
+            </div>
+            <!-- Strip 3 -->
+            <div class="p-strip" style="--delay: 0.2s;">
+                <img src="assets/hero.png" alt="Architecture">
             </div>
         </div>
 
-        <div class="hero-row-2">
-            <div class="ticker-wrap reveal">
-                <div class="ticker-inner">
-                    <span>STEEL // CONCRETE // LOGIC // STEEL // CONCRETE // LOGIC</span>
-                </div>
-            </div>
-            <h1 class="split-text-reveal"><span>INFRATECH</span></h1>
-        </div>
-
-        <div class="hero-row-3">
-            <div class="hero-cta-complex">
-                <a href="#projects" class="kinetic-pill-btn">
-                    <span class="pill-bg"></span>
-                    <span class="pill-text">INITIATE_EXPLORATION</span>
-                    <svg class="pill-arrow" viewBox="0 0 24 24">
-                        <path d="M5 12h14m-4-4l4 4-4 4" stroke="currentColor" stroke-width="2" fill="none" />
-                    </svg>
-                </a>
-            </div>
-            <div class="hero-abstract-stat reveal">
-                <span class="stat-large">Σ_048</span>
-                <span class="stat-small">ACTIVE_NODES</span>
-            </div>
+        <div class="hero-overlay-stat">
+            <span class="giant-num">3.5M</span>
+            <span class="giant-label">So. Ft. Built</span>
         </div>
     </div>
 
-    <!-- Decorative HUD Elements -->
-    <div class="hud hud-top-left">SYSTEM_STATUS: [OPTIMAL]</div>
-    <div class="hud hud-bottom-left">CORE_FOUNDATION_v2.0</div>
-    <div class="hud hud-bottom-right">FRAME_RATE: 60fps</div>
 </section>
+
+<style>
+    /* Reset & Base */
+    .hero-avant-garde {
+        height: 100vh;
+        display: flex;
+        background: #0D0D0D;
+        color: #F0F0F0;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* Left Column */
+    .hero-left-col {
+        width: 40%;
+        padding: 0 5vw;
+        /* Aligns with global container */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-brand-mark {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        width: 120px;
+        height: 120px;
+    }
+
+    .brand-spinner {
+        width: 100%;
+        height: 100%;
+        animation: rotate 20s linear infinite;
+    }
+
+    .brand-spinner text {
+        fill: #F0F0F0;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .brand-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .hero-titles {
+        margin-top: 100px;
+    }
+
+    .hero-titles h1 {
+        font-size: clamp(3rem, 10vw, 150px);
+        /* Reduced min to 3rem for mobile safety */
+        line-height: 0.9;
+        /* Slightly more breathing room */
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+    .hero-titles h1.outline {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-footer-absolute {
+        position: absolute;
+        bottom: 60px;
+        left: 60px;
+    }
+
+    .scroll-indicator {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+        transform: rotate(-90deg);
+        transform-origin: left;
+    }
+
+    .line-grow {
+        width: 50px;
+        height: 1px;
+        background: white;
+        animation: growLine 2s infinite ease-in-out;
+    }
+
+    @keyframes growLine {
+        0% {
+            width: 0;
+            opacity: 0;
+        }
+
+        50% {
+            width: 50px;
+            opacity: 1;
+        }
+
+        100% {
+            width: 0;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+    }
+
+    /* Right Column */
+    .hero-right-col {
+        width: 60%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .portal-strips {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        /* Ensure full width */
+    }
+
+    .p-strip {
+        flex: 1;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        transform: translateY(100%);
+        animation: slideUp 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        animation-delay: var(--delay);
+    }
+
+    .p-strip img {
+        height: 100%;
+        width: 300%;
+        /* Zoomed in to create fragmented look */
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        /* Offset images to align visually */
+    }
+
+    .p-strip:nth-child(1) img {
+        left: 0;
+    }
+
+    .p-strip:nth-child(2) img {
+        left: -100%;
+    }
+
+    .p-strip:nth-child(3) img {
+        left: -200%;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    .hero-overlay-stat {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #BCA37F;
+        color: #000;
+        padding: 40px 60px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .giant-num {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1;
+    }
+
+    .giant-label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    @media (max-width: 1024px) {
+        .hero-avant-garde {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .hero-left-col {
+            width: 100%;
+            height: 60vh;
+            padding: 30px;
+            border-right: none;
+        }
+
+        .hero-right-col {
+            width: 100%;
+            height: 50vh;
+        }
+
+        .hero-footer-absolute {
+            display: none;
+        }
+    }
+</style>

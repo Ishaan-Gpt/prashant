@@ -1,22 +1,130 @@
-<section id="about" class="story-grid">
-    <div class="bento-item large reveal">
-        <div class="img-box"><img src="assets/infra.png" alt="Legacy"></div>
-        <span class="hero-subline">Our Story</span>
-        <h3>Engineering <br>India's Ascent</h3>
-        <p>Founded in 2020, Supreme Infratech emerged with a single vision: to bridge the gap between architectural
-            dream and engineering reality.</p>
-    </div>
-    <div class="bento-item reveal" data-delay="100">
-        <h3>48+</h3>
-        <p>Strategic Projects Completed across 3 states.</p>
-    </div>
-    <div class="bento-item reveal" data-delay="200">
-        <h3>₹200Cr</h3>
-        <p>Projected turnover for the 2026 fiscal cycle.</p>
-    </div>
-    <div class="bento-item medium reveal" data-delay="300">
-        <div class="img-box"><img src="assets/nsti.png" alt="Mission"></div>
-        <h3>Mastering The <br>Complex</h3>
-        <p>We specialized in what others found impossible: deep foundations and high-rise structural logic.</p>
+<section id="story" class="brutalist-story">
+    <div class="container relative">
+        <!-- Giant sticky year -->
+        <div class="story-year">2020</div>
+
+        <div class="story-content-grid">
+            <div class="story-col-left">
+                <!-- Empty for spacing -->
+            </div>
+            <div class="story-col-right">
+                <span class="story-tag">THE GENESIS</span>
+                <h2>FROM THE<br>GROUND UP.</h2>
+                <div class="story-divider"></div>
+                <p class="story-lead">Supreme Infratech was not founded to be just another construction firm. We were
+                    forged in the fires of precision engineering to solve India's most complex structural challenges.
+                </p>
+
+                <div class="story-stat-row">
+                    <div class="ss-item">
+                        <span class="ss-num">01</span>
+                        <span class="ss-label">VISION</span>
+                    </div>
+                    <div class="ss-item">
+                        <span class="ss-num">02</span>
+                        <span class="ss-label">EXECUTION</span>
+                    </div>
+                    <div class="ss-item">
+                        <span class="ss-num">03</span>
+                        <span class="ss-label">LEGACY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<style>
+    .brutalist-story {
+        padding: 15vh 0;
+        background: #FEFDFB;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .story-year {
+        position: absolute;
+        top: 50%;
+        left: -5%;
+        transform: translateY(-50%);
+        font-size: 30vw;
+        font-weight: 900;
+        color: rgba(0, 0, 0, 0.03);
+        line-height: 0;
+        z-index: 0;
+        font-family: var(--font-heading);
+    }
+
+    .story-content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .story-tag {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.8rem;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+        display: block;
+        padding-left: 20px;
+        border-left: 1px solid var(--color-primary);
+    }
+
+    .story-col-right h2 {
+        font-size: clamp(3rem, 6vw, 100px);
+        line-height: 0.9;
+        margin-bottom: 40px;
+    }
+
+    .story-divider {
+        width: 100%;
+        height: 1px;
+        background: #000;
+        margin-bottom: 40px;
+    }
+
+    .story-lead {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 60px;
+        font-weight: 500;
+    }
+
+    .story-stat-row {
+        display: flex;
+        gap: 60px;
+    }
+
+    .ss-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ss-num {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--color-primary);
+    }
+
+    .ss-label {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    @media (max-width: 1024px) {
+        .story-content-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .story-year {
+            font-size: 40vw;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+</style>

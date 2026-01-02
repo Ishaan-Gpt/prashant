@@ -1,28 +1,177 @@
-<section id="projects" class="projects-showcase">
-    <div class="container-padding" style="padding: 0 8% 80px;">
-        <span class="hero-subline">Selected Works</span>
-        <h2>Iconic <br>Signatures</h2>
-    </div>
-    <div class="project-track">
-        <div class="project-row reveal" data-img="assets/nsti.png">
-            <span class="project-tag">Educational</span>
-            <h3 class="project-title">NSTI JATNI</h3>
-            <span class="project-tag">Odisha | ₹130Cr</span>
+<section id="projects" class="creative-portfolio-section">
+    <div class="container" style="max-width: 100%; padding: 0;">
+
+        <!-- Header -->
+        <div class="creative-header">
+            <h2>ICONIC<br>STRUCTURES.</h2>
         </div>
-        <div class="project-row reveal" data-img="assets/chemical.png">
-            <span class="project-tag">Industrial</span>
-            <h3 class="project-title">BAJRANG POWER</h3>
-            <span class="project-tag">Begunia | ₹100Cr</span>
+
+        <!-- Project 1 -->
+        <div class="creative-project-row">
+            <div class="cp-info">
+                <span class="cp-num">01</span>
+                <h3>VEDANTA<br>ALUMINIUM</h3>
+                <p>An industrial colossus. 250 Acres of precise steel fabrication and heavy civil engineering.</p>
+                <div class="cp-tags">
+                    <span>Heavy Civil</span>
+                    <span>Fabrication</span>
+                </div>
+            </div>
+            <div class="cp-visual">
+                <img src="assets/hero.png" alt="Vedanta">
+            </div>
         </div>
-        <div class="project-row reveal" data-img="assets/infra.png">
-            <span class="project-tag">Maintenance</span>
-            <h3 class="project-title">VEDANTA STEEL</h3>
-            <span class="project-tag">Multi-State | Ongoing</span>
+
+        <!-- Project 2 -->
+        <div class="creative-project-row reverse">
+            <div class="cp-info">
+                <span class="cp-num">02</span>
+                <h3>NSTI<br>CAMPUS</h3>
+                <p>Institutional landmark. Combining vernacular aesthetics with modern structural integrity.</p>
+                <div class="cp-tags">
+                    <span>Design & Build</span>
+                    <span>Institutional</span>
+                </div>
+            </div>
+            <div class="cp-visual">
+                <img src="assets/nsti.png" alt="NSTI">
+            </div>
         </div>
-        <div class="project-row reveal" data-img="assets/hero.png">
-            <span class="project-tag">Infrastructure</span>
-            <h3 class="project-title">JINDAL ENERGY</h3>
-            <span class="project-tag">Odisha | Active</span>
+
+        <!-- Project 3 -->
+        <div class="creative-project-row">
+            <div class="cp-info">
+                <span class="cp-num">03</span>
+                <h3>CIVIL<br>TOWNSHIP</h3>
+                <p>Urban planning at scale. Residential complexes integrated with sustainable utilities.</p>
+                <div class="cp-tags">
+                    <span>Urban Planning</span>
+                    <span>Residential</span>
+                </div>
+            </div>
+            <div class="cp-visual">
+                <img src="assets/infra.png" alt="Township">
+            </div>
         </div>
+
     </div>
 </section>
+
+<style>
+    .creative-portfolio-section {
+        background: #000;
+        color: white;
+        padding-bottom: 200px;
+    }
+
+    .creative-header {
+        padding: 15vh 5vw;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .creative-header h2 {
+        font-size: clamp(4rem, 15vw, 200px);
+        line-height: 0.8;
+        letter-spacing: -4px;
+    }
+
+    .creative-project-row {
+        display: flex;
+        height: 90vh;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .creative-project-row.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .cp-info {
+        width: 40%;
+        padding: 80px 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+        background: #000;
+    }
+
+    .cp-num {
+        font-family: 'Space Mono', monospace;
+        font-size: 1rem;
+        color: var(--color-primary);
+        margin-bottom: 40px;
+        display: block;
+    }
+
+    .cp-info h3 {
+        font-size: clamp(3rem, 6vw, 80px);
+        line-height: 0.9;
+        margin-bottom: 40px;
+    }
+
+    .cp-info p {
+        font-size: 1.1rem;
+        color: #999;
+        max-width: 400px;
+        margin-bottom: 40px;
+    }
+
+    .cp-tags {
+        display: flex;
+        gap: 20px;
+    }
+
+    .cp-tags span {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 8px 15px;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        border-radius: 20px;
+    }
+
+    .cp-visual {
+        width: 60%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cp-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.5s var(--ease-luxury);
+        filter: grayscale(1) contrast(1.2);
+    }
+
+    .creative-project-row:hover img {
+        transform: scale(1.1);
+        filter: grayscale(0) contrast(1);
+    }
+
+    @media (max-width: 1024px) {
+
+        .creative-project-row,
+        .creative-project-row.reverse {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .cp-info,
+        .cp-visual {
+            width: 100%;
+        }
+
+        .cp-visual {
+            height: 50vh;
+        }
+
+        .cp-info {
+            padding: 60px 5vw;
+        }
+    }
+</style>

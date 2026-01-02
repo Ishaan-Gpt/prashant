@@ -1,16 +1,159 @@
-<section class="section-padding" style="background: var(--color-surface); padding: 15vh 8%;">
-    <span class="hero-subline">Clarification</span>
-    <h2>Inquiry <br>Nodes</h2>
-    <div class="faq-track" style="margin-top: 80px; max-width: 1000px;">
-        <div class="faq-item reveal" style="padding: 40px 0; border-bottom: 1px solid var(--color-border);">
-            <h3 style="font-size: 1.5rem;">Execution Timeline?</h3>
-            <p style="margin-top: 20px;">We specialize in "Flash Mobilization" where equipment is on-site within 14 days
-                of contract signing.</p>
+<section id="faq" class="section-padding reveal">
+    <div class="container" style="max-width: 1000px;">
+        <!-- Luxury Header -->
+        <div class="luxury-section-header" style="text-align: center; margin-bottom: 100px;">
+            <span class="hero-subline" style="padding-left: 0;">Inquiries</span>
+            <h2>Common <br>Questions.</h2>
         </div>
-        <div class="faq-item reveal" style="padding: 40px 0; border-bottom: 1px solid var(--color-border);">
-            <h3 style="font-size: 1.5rem;">Financial Strength?</h3>
-            <p style="margin-top: 20px;">With ₹40Cr facility and a BG limit of ₹20Cr, we self-fund massive procurement
-                phases.</p>
+
+        <!-- The Accordion -->
+        <div class="luxury-accordion">
+
+            <!-- Item 1 -->
+            <div class="acc-item" onclick="toggleAcc(this)">
+                <div class="acc-header">
+                    <span class="acc-num">01</span>
+                    <h4>What is your typical project scale?</h4>
+                    <div class="acc-icon">+</div>
+                </div>
+                <div class="acc-body">
+                    <p>We specialize in large-scale infrastructure projects ranging from ₹50M to ₹500M+. Our portfolio
+                        includes industrial complexes, high-rise residential towers, and institutional campuses
+                        exceeding 100,000 sq. ft.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="acc-item" onclick="toggleAcc(this)">
+                <div class="acc-header">
+                    <span class="acc-num">02</span>
+                    <h4>Do you handle turnkey execution?</h4>
+                    <div class="acc-icon">+</div>
+                </div>
+                <div class="acc-body">
+                    <p>Yes. We offer end-to-end "Design & Build" services. From initial architectural concept and
+                        structural design (BIM) to civil construction, MEP integration, and final interior fit-outs.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="acc-item" onclick="toggleAcc(this)">
+                <div class="acc-header">
+                    <span class="acc-num">03</span>
+                    <h4>What are your safety standards?</h4>
+                    <div class="acc-icon">+</div>
+                </div>
+                <div class="acc-body">
+                    <p>We strictly adhere to ISO 45001:2018 occupational health and safety standards. Every site
+                        mandates 100% PPE compliance, daily toolbox talks, and regular third-party safety audits.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="acc-item" onclick="toggleAcc(this)">
+                <div class="acc-header">
+                    <span class="acc-num">04</span>
+                    <h4>Where are you currently operational?</h4>
+                    <div class="acc-icon">+</div>
+                </div>
+                <div class="acc-body">
+                    <p>Our primary operational hubs are in Bhubaneswar, Cuttack, and Rourkela. However, we have active
+                        sites across Odisha and capability to mobilize rapidly in neighboring eastern states.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
+
+<style>
+    .acc-item {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .acc-header {
+        padding: 40px 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .acc-item:hover .acc-header {
+        padding-left: 20px;
+    }
+
+    .acc-num {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        margin-right: 40px;
+        opacity: 0.5;
+    }
+
+    .acc-header h4 {
+        flex-grow: 1;
+        font-size: 1.2rem;
+        margin: 0;
+        color: var(--color-text);
+        letter-spacing: 0;
+        text-transform: none;
+    }
+
+    .acc-icon {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--color-text);
+        transition: transform 0.4s;
+    }
+
+    .acc-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s var(--ease-luxury);
+    }
+
+    .acc-body p {
+        padding: 0 0 40px 80px;
+        opacity: 0.7;
+        font-size: 1.05rem;
+        line-height: 1.8;
+    }
+
+    /* Active State */
+    .acc-item.active .acc-icon {
+        transform: rotate(45deg);
+        color: var(--color-primary);
+    }
+
+    .acc-item.active .acc-header h4 {
+        color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+        .acc-header h4 {
+            font-size: 1rem;
+        }
+
+        .acc-num {
+            margin-right: 20px;
+            font-size: 1.2rem;
+        }
+
+        .acc-body p {
+            padding-left: 0;
+        }
+    }
+</style>
+
+<script>
+    function toggleAcc(el) {
+        el.classList.toggle('active');
+        const body = el.querySelector('.acc-body');
+        if (el.classList.contains('active')) {
+            body.style.maxHeight = body.scrollHeight + "px";
+        } else {
+            body.style.maxHeight = 0;
+        }
+    }
+</script>
