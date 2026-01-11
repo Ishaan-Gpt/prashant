@@ -1,43 +1,43 @@
-# Supreme Infratech - Premium Construction Website
+# SUPREME INFRATECH - CLEAN PROJECT
 
-A modern, high-performance website designed for Supreme Infratech. Built using pure HTML5, CSS3, and Vanilla JavaScript, ensuring maximum speed and seamless WordPress integration.
+## ✅ ACTIVE FILES
 
-## ✨ Key Features
-- **Premium Aesthetics**: Glassmorphism, gold gradients, and sophisticated typography.
-- **Interactive UI**: Magnetic buttons, custom cursor, and bento-grid layouts.
-- **Advanced Animations**: Intersection Observer-driven reveals, number counters, and smooth scrolling.
-- **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewing.
-- **WordPress Ready**: Semantic markup and clean structure for easy theme conversion.
-- **Floating Actions**: Direct WhatsApp and Call integration.
+### Core Files:
+- **index.html** - Main website file (V1 version)
+- **style.css** - Styling (V1 version)
+- **script.js** - JavaScript functionality (V1 version)
 
-## 📂 Project Structure
-- `index.html`: Fully semantic HTML5 structure.
-- `style.css`: Modular CSS3 with custom design tokens.
-- `script.js`: Interactive logic and animations (Vanilla JS).
-- `assets/`: (To be populated) Project icons and images.
+### Folders:
+- **assets/** - Images (hero.png, infra.png, nsti.png, etc.)
+- **components/** - Reusable components (nav.html)
+- **sections/** - Page sections (hero, story, engineering, metrics, partners, projects, contact, footer, etc.)
 
-## 🚀 Getting Started
-Simply open `index.html` in any modern web browser. No build tools or installation required.
-
-### Browser Support
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## 🛠 Tech Stack
-- **HTML5**: Semantic tags, ARIA labels.
-- **CSS3**: Flexbox, Grid, Custom Properties (Variables), Keyframes.
-- **JavaScript**: ES6+, Intersection Observer API, Custom Events.
-- **Icons**: Font Awesome 6 (CDN).
-- **Fonts**: Google Fonts (Poppins, Montserrat, Inter).
-
-## 📝 Roadmap for WordPress Integration
-1. Split `index.html` into `header.php`, `footer.php`, and `front-page.php`.
-2. Enqueue `style.css` and `script.js` via `functions.php`.
-3. Map static sections to Advanced Custom Fields (ACF).
-4. Use `WP_Query` for the Project Grid showcase.
-5. Integrate Contact Form 7 for the inquiry form.
+### Configuration:
+- **.htaccess** - Server configuration
+- **README.md** - Project documentation
+- **.git/** - Git repository
 
 ---
-Designed with ❤️ for Supreme Infratech.
+
+## 🗑️ CLEANED UP (Removed):
+
+- ❌ v1_revert/ folder (merged into main)
+- ❌ LUXURY_REDESIGN_PROGRESS.md
+- ❌ LUXURY_TRANSFORMATION.md
+- ❌ PROJECT_STRUCTURE.md
+- ❌ assets.zip
+- ❌ supreme_code.zip
+- ❌ supreme_infratech_v1.zip
+- ❌ supreme_infratech_v2_final.zip
+
+---
+
+## 🚀 HOW TO USE
+
+Simply open **index.html** in your browser.
+
+The V1 version is now your main website!
+
+---
+
+**Project is now clean and ready to use.**

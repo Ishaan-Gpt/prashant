@@ -1,137 +1,180 @@
-/**
- * SUPREME INFRATECH - THE BRUTALIST AVANT-GARDE ENGINE
- * Pure Vanilla JS | Awwwards Standard Interactions
- */
+// Lenis Smooth Scroll
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smooth: true,
+});
 
-window.initMotionEngine = () => {
-    initCursor();
-    initScrollEngine();
-    initAccordion();
-    initMatrixGrid();
-    initMagneticElements();
-    initContactForm();
-};
-
-// 1. Dual Cursor Logic (Updated)
-function initCursor() {
-    // Only if elements exist
-    const dot = document.querySelector('.cursor-dot');
-    const outline = document.querySelector('.cursor-outline');
-    if (!dot || !outline) return; // Cursor elements were removed in V2, so this safely exits if missing.
-
-    // If we wanted to re-add custom cursor, logic would go here.
-    // Currently staying native as per instruction "Remove Custom Cursor".
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
 }
+requestAnimationFrame(raf);
 
-// 2. Scroll Logic (Intersection Observer)
-function initScrollEngine() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+// DOM Ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Preloader
+    setTimeout(() => {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            preloader.classList.add('fade-out');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }
+        document.body.classList.add('loaded');
+    }, 1500);
+
+    // Initialize all features
+    setTimeout(() => {
+        initNavbar();
+        initCursor();
+        initRevealAnimations();
+        initMagneticButtons();
+        initParallax();
+    }, 100);
+});
+
+// Navbar - Dynamic color based on section
+function initNavbar() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    navbar.classList.add('dark-mode');
+
+    const darkSections = ['#hero', '#resources', '#projects'];
+
+    const checkNavbar = () => {
+        let isOverDark = false;
+
+        darkSections.forEach(selector => {
+            const section = document.querySelector(selector);
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 80 && rect.bottom > 80) {
+                    isOverDark = true;
+                }
             }
         });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal, .text-reveal, .hero-titles, .stat-row, .pcl-item').forEach(el => observer.observe(el));
-}
-
-// 3. Global Accordion Logic (Critical for buttons/dropdowns)
-function initAccordion() {
-    window.toggleAcc = function (el) {
-        if (!el) return;
-        // Toggle active class
-        el.classList.toggle('active');
-
-        // Handle body height smoothly
-        const body = el.querySelector('.acc-body');
-        if (body) {
-            if (el.classList.contains('active')) {
-                body.style.maxHeight = body.scrollHeight + "px";
-            } else {
-                body.style.maxHeight = 0;
-            }
-        }
-
-        // Optional: Close others in same group
-        const startGroup = el.parentElement;
-        if (startGroup) {
-            startGroup.querySelectorAll('.acc-item').forEach(item => {
-                if (item !== el && item.classList.contains('active')) {
-                    item.classList.remove('active');
-                    const itemBody = item.querySelector('.acc-body');
-                    if (itemBody) itemBody.style.maxHeight = 0;
-                }
-            });
+        if (isOverDark) {
+            navbar.classList.add('dark-mode');
+            navbar.classList.remove('light-mode');
+        } else {
+            navbar.classList.remove('dark-mode');
+            navbar.classList.add('light-mode');
         }
     };
 
-    // Attach click listeners if not using inline onclick
-    document.querySelectorAll('.acc-item').forEach(item => {
-        // Remove old listeners to avoid dupes?
-        // Ideally we rely on onclick="toggleAcc(this)" in HTML or add here.
-        // We will assume HTML has onclick or we add it here just in case.
-        item.onclick = (e) => {
-            // Check if click was on header
-            if (e.target.closest('.acc-header')) {
-                // If the item itself calls toggleAcc via HTML, this might double trigger.
-                // Best to rely on one. The HTML usually has onclick="toggleAcc(this)".
-                // So leaving this empty to avoid conflicts, relying on window.toggleAcc.
+    window.addEventListener('scroll', checkNavbar);
+    checkNavbar();
+}
+
+// Custom Cursor
+function initCursor() {
+    const dot = document.querySelector('.cursor-dot');
+    const circle = document.querySelector('.cursor-circle');
+    if (!dot || !circle) return;
+
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    let circleX = 0, circleY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+        // Dot follows instantly
+        dotX += (mouseX - dotX) * 0.5;
+        dotY += (mouseY - dotY) * 0.5;
+        dot.style.left = dotX + 'px';
+        dot.style.top = dotY + 'px';
+
+        // Circle follows with delay
+        circleX += (mouseX - circleX) * 0.15;
+        circleY += (mouseY - circleY) * 0.15;
+        circle.style.left = circleX + 'px';
+        circle.style.top = circleY + 'px';
+
+        requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover effects
+    const hoverElements = document.querySelectorAll('a, button, .service-item, .stat-box, .project-slide');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            dot.style.transform = 'translate(-50%, -50%) scale(0.5)';
+            circle.style.transform = 'translate(-50%, -50%) scale(1.5)';
+            circle.style.borderColor = 'rgba(197, 160, 89, 0.6)';
+        });
+        el.addEventListener('mouseleave', () => {
+            dot.style.transform = 'translate(-50%, -50%) scale(1)';
+            circle.style.transform = 'translate(-50%, -50%) scale(1)';
+            circle.style.borderColor = 'rgba(197, 160, 89, 0.4)';
+        });
+    });
+}
+
+// Reveal Animations on Scroll
+function initRevealAnimations() {
+    const reveals = document.querySelectorAll('.section-title, .about-text, .stat-box, .service-item, .res-item, .director-card, .project-info');
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('reveal', 'visible');
+                }, index * 100);
             }
-        };
+        });
+    }, observerOptions);
+
+    reveals.forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
     });
 }
 
-// 4. Tech Matrix Interaction
-function initMatrixGrid() {
-    const cells = document.querySelectorAll('.tech-cell');
-    cells.forEach(cell => {
-        cell.addEventListener('mouseenter', () => {
-            cells.forEach(c => c.classList.remove('active'));
-            cell.classList.add('active');
+// Magnetic Buttons
+function initMagneticButtons() {
+    const buttons = document.querySelectorAll('.hero-btn, .nav-cta, .contact-form button');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = 'translate(0, 0)';
         });
     });
 }
 
-// 5. Magnetic Elements (Buttons)
-function initMagneticElements() {
-    const pills = document.querySelectorAll('.kinetic-pill-btn');
-    pills.forEach(pill => {
-        pill.addEventListener('mousemove', (e) => {
-            const rect = pill.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) * 0.4;
-            const y = (e.clientY - rect.top - rect.height / 2) * 0.4;
-            pill.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+// Parallax for project images
+function initParallax() {
+    const projectSlides = document.querySelectorAll('.project-slide img');
+
+    window.addEventListener('scroll', () => {
+        projectSlides.forEach(img => {
+            const slide = img.parentElement;
+            const rect = slide.getBoundingClientRect();
+
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const speed = 0.1;
+                const offset = rect.top * speed;
+                img.style.transform = `translateY(${offset}px) scale(1.1)`;
+            }
         });
-        pill.addEventListener('mouseleave', () => {
-            pill.style.transform = 'translate3d(0, 0, 0)';
-        });
-    });
-}
-
-// 6. Contact Form Logic
-function initContactForm() {
-    const form = document.querySelector('.c-form');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = form.querySelector('.c-btn');
-        const originalText = btn.querySelector('span:last-child').innerText;
-
-        btn.querySelector('span:last-child').innerText = 'TRANSMITTING...';
-        btn.style.opacity = '0.7';
-
-        setTimeout(() => {
-            btn.querySelector('span:last-child').innerText = 'SIGNAL RECEIVED';
-            btn.style.borderColor = '#2ecc71'; // Green
-            btn.style.opacity = '1';
-            form.reset();
-
-            setTimeout(() => {
-                btn.querySelector('span:last-child').innerText = originalText;
-                btn.style.borderColor = 'white';
-            }, 3000);
-        }, 1500);
     });
 }

@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUPREME INFRATECH | BEYOND ENGINEERING</title>
-    <meta name="description" content="Awwwards level modular architecture for Supreme Infratech.">
+    <title>Supreme Infratech | Beyond Engineering</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@400;500;700;800&family=Poppins:wght@700;800;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -20,80 +19,90 @@
 
 <body>
 
-    <!-- Motion System -->
-    <!-- Motion System -->
-    <div class="project-peek" id="projectPeek"><img src="assets/hero.png" alt="Preview"></div>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-text">SUPREME.</div>
+    </div>
 
-    <!-- UI Components -->
-    <div id="nav-root"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
 
-    <main id="main-content" class="main-container">
+    <!-- Navigation Container -->
+    <div id="navbar-root"></div>
+
+    <main>
+        <!-- Section Containers (loaded dynamically) -->
         <div id="hero-root"></div>
-        <div id="story-root"></div>
-        <div id="philosophy-root"></div>
-        <div id="projects-root"></div>
+        <div id="about-root"></div>
+        <div id="services-root"></div>
+        <div id="resources-root"></div>
         <div id="partners-root"></div>
-        <div id="metrics-root"></div>
-        <div id="engineering-root"></div>
-        <div id="safety-root"></div>
-        <div id="reach-root"></div>
-        <div id="innovation-root"></div>
-        <div id="leadership-root"></div>
-        <div id="sustainability-root"></div>
-        <div id="faq-root"></div>
+        <div id="projects-root"></div>
         <div id="contact-root"></div>
         <div id="footer-root"></div>
     </main>
 
-    <!-- Component Loader Logic -->
+    <!-- Lenis for Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- Component Loader -->
     <script>
-        async function loadComponent(id, url) {
+        // Load component into container
+        async function loadComponent(containerId, componentPath) {
             try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const response = await fetch(componentPath);
+                if (!response.ok) throw new Error(`Failed to load ${componentPath}`);
                 const html = await response.text();
-                const container = document.getElementById(id);
+                const container = document.getElementById(containerId);
                 if (container) {
                     container.innerHTML = html;
                 }
-            } catch (err) {
-                console.error(`Failed to load ${url}:`, err);
+            } catch (error) {
+                console.error(`Error loading ${componentPath}:`, error);
             }
         }
 
-        async function initApp() {
-            // Load all sections
+        // Initialize all components
+        async function initComponents() {
             const components = [
-                { id: 'nav-root', url: 'components/nav.html' },
-                { id: 'hero-root', url: 'sections/hero.html' },
-                { id: 'story-root', url: 'sections/story.html' },
-                { id: 'philosophy-root', url: 'sections/philosophy.html' },
-                { id: 'projects-root', url: 'sections/projects.html' },
-                { id: 'partners-root', url: 'sections/partners.html' },
-                { id: 'metrics-root', url: 'sections/metrics.html' },
-                { id: 'engineering-root', url: 'sections/engineering.html' },
-                { id: 'safety-root', url: 'sections/safety.html' },
-                { id: 'reach-root', url: 'sections/reach.html' },
-                { id: 'innovation-root', url: 'sections/innovation.html' },
-                { id: 'leadership-root', url: 'sections/leadership.html' },
-                { id: 'sustainability-root', url: 'sections/sustainability.html' },
-                { id: 'faq-root', url: 'sections/faq.html' },
-                { id: 'contact-root', url: 'sections/contact.html' },
-                { id: 'footer-root', url: 'sections/footer.html' }
+                { id: 'navbar-root', path: 'components/navbar.html' },
+                { id: 'hero-root', path: 'sections/hero.html' },
+                { id: 'about-root', path: 'sections/about.html' },
+                { id: 'services-root', path: 'sections/services.html' },
+                { id: 'resources-root', path: 'sections/resources.html' },
+                { id: 'partners-root', path: 'sections/partners.html' },
+                { id: 'projects-root', path: 'sections/projects.html' },
+                { id: 'contact-root', path: 'sections/contact.html' },
+                { id: 'footer-root', path: 'sections/footer.html' }
             ];
 
-            for (const item of components) {
-                await loadComponent(item.id, item.url);
+            // Load all components in sequence
+            for (const component of components) {
+                await loadComponent(component.id, component.path);
             }
 
-            // Re-initialize motion engine
-            if (typeof initMotionEngine === 'function') {
-                initMotionEngine();
+            // Re-initialize ALL features after all components are loaded
+            if (typeof initNavbar === 'function') {
+                initNavbar();
+            }
+            if (typeof initCursor === 'function') {
+                initCursor();
+            }
+            if (typeof initRevealAnimations === 'function') {
+                initRevealAnimations();
+            }
+            if (typeof initMagneticButtons === 'function') {
+                initMagneticButtons();
+            }
+            if (typeof initParallax === 'function') {
+                initParallax();
             }
         }
 
-        document.addEventListener('DOMContentLoaded', initApp);
+        // Start loading when DOM is ready
+        document.addEventListener('DOMContentLoaded', initComponents);
     </script>
 </body>
 
